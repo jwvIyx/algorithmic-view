@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css" media="screen" />
+    <title>AlgorithmicView</title>
+</head>
+<body>
+    <header>
+        <h1>binarySearch()</h1>
+        <p class="text">Cada clique no botão binarySearch() representa uma iteração do algoritmo, mostrando atualizações pra cada um: mid (meio),  guess (chute), e o resultado da iteração.</p>
+    </header>
+    <main class="container" id="container">
+        <div class="array-box" id="arrayBox"></div>
+        
+        <div class="info-container">
+            <div class="status-panel" id="statusPanel">
+                <div class="variable-display">
+                    <div class="variable-row">
+                        <span class="variable-name">Target:</span>
+                        <span class="variable-value" id="targetValue">-</span>
+                    </div>
+                    <div class="variable-row">
+                        <span class="variable-name">Low:</span>
+                        <span class="variable-value" id="lowValue">-</span>
+                    </div>
+                    <div class="variable-row">
+                        <span class="variable-name">High:</span>
+                        <span class="variable-value" id="highValue">-</span>
+                    </div>
+                    <div class="variable-row">
+                        <span class="variable-name">Mid:</span>
+                        <span class="variable-value" id="midValue">-</span>
+                    </div>
+                    <div class="variable-row">
+                        <span class="variable-name">Guess:</span>
+                        <span class="variable-value" id="guessValue">-</span>
+                    </div>
+                    <div class="variable-row">
+                        <span class="variable-name">Result:</span>
+                        <span class="variable-value" id="resultValue">-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="explanation">
+                Esse projeto tem como objetivo explicar de forma visual a execução dos principais algoritmos ensinados no livro grokking algorithms. 
+                Começando pelo algoritmo binarySearch(), que funciona dividindo repetidamente o intervalo de busca pela metade:
+                <br>
+                1. Compara o elemento do meio com o valor buscado
+                <br>
+                2. Se mid = target, encontramos o valor buscado
+                <br>
+                3. Se mid > target, ou seja, se o valor do meio é maior que o valor buscado, o ultimo elemento do array (high) passa a ser o elemento anterior ao meio (mid-1)
+                <br>
+                4. Se mid < target, ou seja, se o valor do meio é menor que o valor buscado, o primeiro elemento do array (low) passa a ser o elemento posterior ao meio (mid+1)
+                <br>
+            </p>
+        </div>
+        
+        <div class="input-container">
+            <label for="targetInput" class="input-label">Enter target number:</label>
+            <input type="number" id="targetInput" min="1" max="20" value="5" class="target-input">
+            <button onclick="startSearch()">binarySearch()</button>
+        </div>
+    </main>
+    <script src="./src/js/script.js"></script>
+</body>
+</html>

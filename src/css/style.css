@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #040309;
+    color: #FFFFFF;
+}
+
+h1 {
+    font-family: "Kode Mono", monospace;
+    font-size: 42px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #A084FF;
+    margin: 5px;
+}
+
+header {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-family: "Roboto", monospace;
+    font-size: 18px;
+    font-weight: 300;
+    width: 70vh;
+    text-align: left;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.array-box {
+    display: flex;
+    width: 100vh;
+    height: 60px;
+    border: 3px solid #464646;
+    overflow: hidden;
+    transition: width 0.5s ease-out, height 0.5s ease;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.array-box::before {
+    content: "Sorted Array:";
+    position: absolute;
+    font-family: "Kode Mono", monospace;
+    font-size: 14px;
+    color: #464646;
+    top: -25px;
+    left: 0;
+}
+
+.index {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.segment {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid #464646;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    height: 70px;
+    margin-right: 3px;
+}
+
+.segment:last-child {
+    border-right: none;
+}
+
+.cut {
+    transition: transform 0.5s ease-out;
+}
+
+.new-box {
+    width: 100vh;
+    height: 50px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #464646;
+    margin: 10px auto;
+    transition: width 0.5s ease-out, height 0.3s ease;
+}
+
+.new-box .segment {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid #464646;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+}
+
+.new-box .segment:last-child {
+    border-right: none;
+}
+
+.new-box.found {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.new-box.found .segment {
+    border-right: none;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.new-box.small-array {
+    border-radius: 5px;
+}
+
+.new-box.small-array .segment {
+    border-right: 3px solid #464646;
+    min-width: 60px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.new-box.small-array .segment:last-child {
+    border-right: none;
+}
+
+.explanation {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 600px;
+    text-align: left;
+    margin: 25px auto;
+    color: #e0e0e0;
+    background-color: rgba(92, 92, 92, 0.05);
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 3px solid #464646;
+}
+
+.status-panel {
+    background-color: rgba(92, 92, 92, 0.05);
+    border: 1px solid #464646;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.variable-display {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.variable-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Kode Mono", monospace;
+}
+
+.variable-name {
+    color: #A084FF;
+    font-weight: 500;
+}
+
+.variable-value {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+button {
+    background-color: #A084FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: "Kode Mono", monospace;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0;
+}
+
+button:hover {
+    background-color: #8a6ae9;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.input-label {
+    font-family: "Kode Mono", monospace;
+    color: #A084FF;
+    font-size: 16px;
+}
+
+.target-input {
+    background-color: rgba(160, 132, 255, 0.1);
+    border: 2px solid #A084FF;
+    border-radius: 5px;
+    color: white;
+    font-family: "Kode Mono", monospace;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 60px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.target-input:focus {
+    outline: none;
+    background-color: rgba(160, 132, 255, 0.2);
+    box-shadow: 0 0 5px #A084FF;
+}
+
+.target-input::-webkit-inner-spin-button,
+.target-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.target-input {
+    -moz-appearance: textfield;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.status-panel {
+    flex: 0 0 300px; 
+    margin: 0; 
+}
+
+.explanation {
+    flex: 1; 
+    margin: 0; 
+}
+
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+    }
+    
+    .status-panel {
+        width: 100%;
+        max-width: 600px;
+    }
+}
