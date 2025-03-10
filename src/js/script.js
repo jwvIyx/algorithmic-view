@@ -69,8 +69,8 @@ function adjustArrayWidth(arrayElement, arrayLength) {
 function renderNewArray(array, containerClass) {
     const newDiv = createElementWithClass("div", containerClass);
 
-    array.forEach((item, index) => {
-        newDiv.appendChild(createSegmentWithIndexAndValue(item, index));
+    array.forEach((item) => {
+        newDiv.appendChild(createSegmentWithIndexAndValue(item.value, item.index));
     });
     
     adjustArrayWidth(newDiv, array.length);
@@ -127,7 +127,7 @@ function performSearchStep() {
         let result = 'Searching...';
         
         if (guess === searchState.target) {
-            const finalDiv = renderNewArray([guess], 'new-box found');
+            const finalDiv = renderNewArray([{value: guess, index: mid}], 'new-box found');
             finalDiv.style.width = '';
             
             document.getElementById("container").appendChild(finalDiv);
@@ -164,7 +164,13 @@ function performSearchStep() {
             searchState.low = mid + 1;
         }
         
-        const currentSlice = searchState.sortedArray.slice(nextSearchLow, nextSearchHigh + 1);
+        const currentSlice = [];
+        for (let i = nextSearchLow; i <= nextSearchHigh; i++) {
+            currentSlice.push({
+                value: searchState.sortedArray[i],
+                index: i
+            });
+        }
         
         updateStatusPanel({
             target: searchState.target,
